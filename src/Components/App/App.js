@@ -25,7 +25,12 @@ class App extends React.Component {
       number,
       id: nanoid(),
     };
-    if (contacts.find((contact) => contact.name === newContact.name)) {
+    if (
+      contacts.find(
+        (contact) =>
+          contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
       return alert(`${newContact.name} is already in contacts.`);
     }
     this.setState(({ contacts }) => ({
@@ -45,11 +50,9 @@ class App extends React.Component {
     );
   };
 
-  deleteButton = (e) => {
+  deleteButton = (conId) => {
     this.setState((prevState) => ({
-      contacts: prevState.contacts.filter(
-        (contact) => contact.id !== e.target.id
-      ),
+      contacts: prevState.contacts.filter((contact) => contact.id !== conId),
     }));
   };
 

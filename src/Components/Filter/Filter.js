@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FilterInput, FilterLabel } from "./Filter.styled";
 
 export default function Filter({ data }) {
@@ -8,3 +9,7 @@ export default function Filter({ data }) {
     </FilterLabel>
   );
 }
+
+Filter.propTypes = {
+  data: PropTypes.func.isRequired,
+};
